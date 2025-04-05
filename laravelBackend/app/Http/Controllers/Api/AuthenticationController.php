@@ -6,19 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Http\Response;
 
 class AuthenticationController extends Controller
 {
     public function authenticate(Request $request){
-        $validar = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(),[
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        if($validar->fails()){
+        if($validator->fails()){
             return response()->json([
                 'status' => false,
-                'errors' => $validar->errors()
+                'errors' => $validator->errors()
             ]);
         }else{
             $credentials = [
@@ -38,10 +39,19 @@ class AuthenticationController extends Controller
             }else{
                 return response()->json([
                     'status' => false,
-                    'errors' => $validar->errors()
+                    'message' => 'Email or password is incorrect'
                 ]);
             }
         }
 
+    }
+
+    public function logout(){
+        $user = User::find(Auth::user()->id);
+        $user->tokens()->delete();
+        return response()->json([
+            'status' => true,
+            'message' => 'Logedout successfully'
+        ]);
     }
 }

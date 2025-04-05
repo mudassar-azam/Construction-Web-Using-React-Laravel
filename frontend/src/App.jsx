@@ -7,6 +7,17 @@ import Services from './components/frontend/Services';
 import Blogs from './components/frontend/Blogs';
 import Projects from './components/frontend/Projects';
 import Contact from './components/frontend/Contact';
+import Login from './components/backend/Login';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './components/backend/Dashboard';
+import RequireAuth from './components/partials/RequireAuth';
+import {default as ShowServices} from './components/backend/services/Show';
+import {default as CreateServices} from './components/backend/services/Create';
+import {default as EditServices} from './components/backend/services/Edit';
+import {default as ShowProjects} from './components/backend/projects/Show';
+import {default as CreateProjects} from './components/backend/projects/Create';
+import {default as EditProjects} from './components/backend/projects/Edit';
 
 function App() {
 
@@ -14,14 +25,51 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path='/' element={<Home/>}></Route>
-          <Route exact path='/about' element={<About/>}></Route>
-          <Route exact path='/services' element={<Services/>}></Route>
-          <Route exact path='/blogs' element={<Blogs/>}></Route>
-          <Route exact path='/projects' element={<Projects/>}></Route>
-          <Route exact path='/contact' element={<Contact/>}></Route>
+          <Route exact path='/' element={<Home />}></Route>
+          <Route exact path='/about' element={<About />}></Route>
+          <Route exact path='/services' element={<Services />}></Route>
+          <Route exact path='/blogs' element={<Blogs />}></Route>
+          <Route exact path='/projects' element={<Projects />}></Route>
+          <Route exact path='/contact' element={<Contact />}></Route>
+          <Route exact path='/admin/login' element={<Login />}></Route>
+          <Route exact path='/admin/dashboard' element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/services' element={
+            <RequireAuth>
+              <ShowServices/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/services/create' element={
+            <RequireAuth>
+              <CreateServices/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/services/edit/:id' element={
+            <RequireAuth>
+              <EditServices/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/projects' element={
+            <RequireAuth>
+              <ShowProjects/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/projects/create' element={
+            <RequireAuth>
+              <CreateProjects/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/projects/edit/:id' element={
+            <RequireAuth>
+              <EditProjects/>
+            </RequireAuth>}>
+          </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer position='top-center' />
     </>
   )
 }

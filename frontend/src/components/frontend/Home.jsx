@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import serviceImage1 from '../../assets/images/construction1.jpg';
@@ -12,8 +12,11 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css'
 import 'swiper/css/pagination'
 import About from '../partials/About';
+import LatestServices from '../partials/LatestServices';
+import LatestProjects from '../partials/LatestProjects';
 
 export default function Home() {
+
   return (
     <>
       <Header />
@@ -39,84 +42,10 @@ export default function Home() {
         </section>/
 
         {/* about section  */}
-        <About/>
+        <About />
 
         {/* our services  */}
-        <section className="section-3 bg-light py-4">
-          <div className="container-fluid py-5">
-            <div className="section-header text-center">
-              <span>our services</span>
-              <h2>Our construction services</h2>
-              <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
-            </div>
-            <div className="row pt-4">
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LatestServices />
 
         {/* why choose us */}
         <section className="section-4 py-4">
@@ -166,81 +95,7 @@ export default function Home() {
         </section>
 
         {/* our Projects  */}
-        <section className="section-3 bg-light py-4">
-          <div className="container-fluid py-5">
-            <div className="section-header text-center">
-              <span>our projects</span>
-              <h2>Discover our diverse range of projects</h2>
-              <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
-            </div>
-            <div className="row pt-4">
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-3 col-lg-3">
-                <div className="item">
-                  <div className="service-image">
-                    <img src={serviceImage1} className='w-100' />
-                  </div>
-                  <div className="service-body">
-                    <div className="service-title">
-                      <h3>Civil Construction</h3>
-                    </div>
-                    <div className="service-content">
-                      <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                      <a href="#" className='btn btn-primary'>Read More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <LatestProjects/>
 
         {/* testimonial  */}
         <section className="section-5 py-5">
@@ -412,46 +267,46 @@ export default function Home() {
               <div className="col-md-4">
                 <div className="card shadow border-0">
                   <div className="card-img-top">
-                    <img src={blogImg} className='w-100'/>
+                    <img src={blogImg} className='w-100' />
                   </div>
                   <div className="card-body p-4">
-                      <div className='title mb-3'>
-                        <a href="#">Dummy Tile</a>
-                      </div>
-                      <a href="#" className="btn btn-primary small">Read More</a>
+                    <div className='title mb-3'>
+                      <a href="#">Dummy Tile</a>
+                    </div>
+                    <a href="#" className="btn btn-primary small">Read More</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card shadow border-0">
                   <div className="card-img-top">
-                    <img src={blogImg} className='w-100'/>
+                    <img src={blogImg} className='w-100' />
                   </div>
                   <div className="card-body p-4">
-                      <div className='title mb-3'>
-                        <a href="#">Dummy Tile</a>
-                      </div>
-                      <a href="#" className="btn btn-primary small">Read More</a>
+                    <div className='title mb-3'>
+                      <a href="#">Dummy Tile</a>
+                    </div>
+                    <a href="#" className="btn btn-primary small">Read More</a>
                   </div>
                 </div>
               </div>
               <div className="col-md-4">
                 <div className="card shadow border-0">
                   <div className="card-img-top">
-                    <img src={blogImg} className='w-100'/>
+                    <img src={blogImg} className='w-100' />
                   </div>
                   <div className="card-body p-4">
-                      <div className='title mb-3'>
-                        <a href="#">Dummy Tile</a>
-                      </div>
-                      <a href="#" className="btn btn-primary small">Read More</a>
+                    <div className='title mb-3'>
+                      <a href="#">Dummy Tile</a>
+                    </div>
+                    <a href="#" className="btn btn-primary small">Read More</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+
       </main>
       <Footer />
     </>

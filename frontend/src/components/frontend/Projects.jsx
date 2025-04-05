@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import Hero from '../partials/Hero';
-import serviceImage1 from '../../assets/images/construction1.jpg';
+import { apiUrl, fileUrl } from '../partials/http';
 
 export default function Projects() {
+
+    const [projects, setProjects] = useState([])
+
+    const fetchAlltProjects = async () => {
+        const res = await fetch(apiUrl + 'get-projects', {
+            'method': 'GET'
+        });
+
+        const result = await res.json();
+        setProjects(result.data)
+    }
+
+    useEffect(() => {
+        fetchAlltProjects();
+    }, [])
+
     return (
         <>
             <Header />
@@ -18,70 +34,28 @@ export default function Projects() {
                         <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
                     </div>
                     <div className="row pt-4">
-                        <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                    <img src={serviceImage1} className='w-100' />
-                                </div>
-                                <div className="service-body">
-                                    <div className="service-title">
-                                        <h3>Civil Construction</h3>
+                        {
+                            projects && projects.map(project => {
+                                return (
+                                    <div className="col-md-4 col-lg-4" key={project.id}>
+                                        <div className="item">
+                                            <div className="service-image">
+                                                <img src={`${fileUrl}uploads/projects/small/${project.image}`} className='w-100' />
+                                            </div>
+                                            <div className="service-body">
+                                                <div className="service-title">
+                                                    <h3>{project.title}</h3>
+                                                </div>
+                                                <div className="service-content">
+                                                    <p>{project.short_des}</p>
+                                                    <a href="#" className='btn btn-primary'>Read More</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className="service-content">
-                                        <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                                        <a href="#" className='btn btn-primary'>Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                    <img src={serviceImage1} className='w-100' />
-                                </div>
-                                <div className="service-body">
-                                    <div className="service-title">
-                                        <h3>Civil Construction</h3>
-                                    </div>
-                                    <div className="service-content">
-                                        <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                                        <a href="#" className='btn btn-primary'>Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                    <img src={serviceImage1} className='w-100' />
-                                </div>
-                                <div className="service-body">
-                                    <div className="service-title">
-                                        <h3>Civil Construction</h3>
-                                    </div>
-                                    <div className="service-content">
-                                        <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                                        <a href="#" className='btn btn-primary'>Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3 col-lg-3">
-                            <div className="item">
-                                <div className="service-image">
-                                    <img src={serviceImage1} className='w-100' />
-                                </div>
-                                <div className="service-body">
-                                    <div className="service-title">
-                                        <h3>Civil Construction</h3>
-                                    </div>
-                                    <div className="service-content">
-                                        <p>Civil construction is a core sector within the construction industry that focuses on the design, development, and maintenance of infrastructure that supports modern society.</p>
-                                        <a href="#" className='btn btn-primary'>Read More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </section>
