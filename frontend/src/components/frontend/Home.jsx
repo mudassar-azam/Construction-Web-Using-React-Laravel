@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Footer from '../partials/Footer';
 import Header from '../partials/Header';
-import serviceImage1 from '../../assets/images/construction1.jpg';
-import blogImg from '../../assets/images/construction3.jpg';
 import cardIcon1 from '../../assets/images/icon-1.svg';
 import cardIcon2 from '../../assets/images/icon-2.svg';
 import cardIcon3 from '../../assets/images/icon-3.svg';
-import avatarImage from '../../assets/images/author-2.jpg';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css'
-import 'swiper/css/pagination'
 import About from '../partials/About';
 import LatestServices from '../partials/LatestServices';
 import LatestProjects from '../partials/LatestProjects';
+import LatestBlogs from '../partials/LatestBlogs';
+import LatestTestimonials from '../partials/LatestTestimonials';
 
 export default function Home() {
 
@@ -98,214 +93,10 @@ export default function Home() {
         <LatestProjects/>
 
         {/* testimonial  */}
-        <section className="section-5 py-5">
-          <div className='container'>
-            <div className="section-header text-center">
-              <span>Testimonials</span>
-              <h2>What people are saying about us</h2>
-              <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
-            </div>
-            <Swiper modules={[Pagination]} spaceBetween={50} slidesPerView={3} pagination={{ clickable: true }}>
-              <SwiperSlide>
-                <div className="card shadow border-0">
-                  <div className="card-body p-5">
-                    <div className="rating text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                    </div>
-                    <div className="content pt-4 pb-3">
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In delectus illum tempore labore! Voluptatibus mollitia est id. Neque ducimus suscipit ea iure beatae omnis rerum pariatur incidunt laudantium earum aliquid cum tenetur, explicabo sequi culpa ipsam! Explicabo corporis hic dolor?</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex">
-                      <div className='meta'>
-                        <img src={avatarImage} width={50} />
-                      </div>
-                      <div className='ps-3'>
-                        <div className='name'>Mudassar</div>
-                        <div>CEO</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card shadow border-0">
-                  <div className="card-body p-5">
-                    <div className="rating text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                    </div>
-                    <div className="content pt-4 pb-3">
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In delectus illum tempore labore! Voluptatibus mollitia est id. Neque ducimus suscipit ea iure beatae omnis rerum pariatur incidunt laudantium earum aliquid cum tenetur, explicabo sequi culpa ipsam! Explicabo corporis hic dolor?</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex">
-                      <div className='meta'>
-                        <img src={avatarImage} width={50} />
-                      </div>
-                      <div className='ps-3'>
-                        <div className='name'>Mudassar</div>
-                        <div>CEO</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card shadow border-0">
-                  <div className="card-body p-5">
-                    <div className="rating text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                    </div>
-                    <div className="content pt-4 pb-3">
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In delectus illum tempore labore! Voluptatibus mollitia est id. Neque ducimus suscipit ea iure beatae omnis rerum pariatur incidunt laudantium earum aliquid cum tenetur, explicabo sequi culpa ipsam! Explicabo corporis hic dolor?</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex">
-                      <div className='meta'>
-                        <img src={avatarImage} width={50} />
-                      </div>
-                      <div className='ps-3'>
-                        <div className='name'>Mudassar</div>
-                        <div>CEO</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="card shadow border-0">
-                  <div className="card-body p-5">
-                    <div className="rating text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star-fill" viewBox="0 0 16 16">
-                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                      </svg>
-                    </div>
-                    <div className="content pt-4 pb-3">
-                      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. In delectus illum tempore labore! Voluptatibus mollitia est id. Neque ducimus suscipit ea iure beatae omnis rerum pariatur incidunt laudantium earum aliquid cum tenetur, explicabo sequi culpa ipsam! Explicabo corporis hic dolor?</p>
-                    </div>
-                    <hr />
-                    <div className="d-flex">
-                      <div className='meta'>
-                        <img src={avatarImage} width={50} />
-                      </div>
-                      <div className='ps-3'>
-                        <div className='name'>Mudassar</div>
-                        <div>CEO</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-
-          </div>
-        </section>
+        <LatestTestimonials/>
 
         {/* blog section  */}
-        <div className="section-6 py-5 bg-light">
-          <div className="container">
-            <div className="section-header text-center">
-              <span>Blog & News</span>
-              <h2>Articles & blog posts</h2>
-              <p>We offer a diverse array of construction services, spanning residential, commercial, and industrial projects.</p>
-            </div>
-            <div className="row pt-3">
-              <div className="col-md-4">
-                <div className="card shadow border-0">
-                  <div className="card-img-top">
-                    <img src={blogImg} className='w-100' />
-                  </div>
-                  <div className="card-body p-4">
-                    <div className='title mb-3'>
-                      <a href="#">Dummy Tile</a>
-                    </div>
-                    <a href="#" className="btn btn-primary small">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card shadow border-0">
-                  <div className="card-img-top">
-                    <img src={blogImg} className='w-100' />
-                  </div>
-                  <div className="card-body p-4">
-                    <div className='title mb-3'>
-                      <a href="#">Dummy Tile</a>
-                    </div>
-                    <a href="#" className="btn btn-primary small">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-4">
-                <div className="card shadow border-0">
-                  <div className="card-img-top">
-                    <img src={blogImg} className='w-100' />
-                  </div>
-                  <div className="card-body p-4">
-                    <div className='title mb-3'>
-                      <a href="#">Dummy Tile</a>
-                    </div>
-                    <a href="#" className="btn btn-primary small">Read More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <LatestBlogs/>
 
       </main>
       <Footer />

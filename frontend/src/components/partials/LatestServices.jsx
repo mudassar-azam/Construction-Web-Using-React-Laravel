@@ -31,7 +31,7 @@ export default function LatestServices() {
                         {
                             services && services.map(service => {
                                 return (
-                                    <div className="col-md-3 col-lg-3">
+                                    <div className="col-md-3 col-lg-3" key={service.id}>
                                     <div className="item">
                                         <div className="service-image">
                                             <img src={`${fileUrl}uploads/services/small/${service.image}`} className='w-100' />

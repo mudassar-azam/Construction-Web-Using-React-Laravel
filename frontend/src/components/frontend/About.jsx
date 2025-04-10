@@ -4,6 +4,7 @@ import Footer from '../partials/Footer'
 import { default as AboutNew } from '../partials/About';
 import teamImg from '../../assets/images/pexels-sindre-fs-1040880.jpg';
 import Hero from '../partials/Hero';
+import LatestTestimonials from '../partials/LatestTestimonials';
 
 export default function About() {
   return (
@@ -89,6 +90,8 @@ export default function About() {
         </div>
       </div> 
 
+      <LatestTestimonials/>
+      
       <Footer />
     </>
   )

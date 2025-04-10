@@ -30,7 +30,7 @@ export default function LatestProjects() {
                         {
                             projects && projects.map(project => {
                                 return (
-                                    <div className="col-md-3 col-lg-3">
+                                    <div className="col-md-3 col-lg-3" key={project.id}>
                                         <div className="item">
                                             <div className="service-image">
                                                 <img src={`${fileUrl}uploads/projects/small/${project.image}`} className='w-100' />

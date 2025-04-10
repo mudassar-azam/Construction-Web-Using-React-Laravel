@@ -19,7 +19,10 @@ export default function Sidebar() {
                         <Link to="/admin/projects">Projects</Link>
                     </li>
                     <li>
-                        <a href="#">Articles</a>
+                        <Link to="/admin/blogs">Blogs</Link>
+                    </li>
+                    <li>
+                        <a href="/admin/testimonials">Testimonial</a>
                     </li>
                     <li>
                         <button onClick={logout} className='btn btn-primary small mt-3'>Logout</button>

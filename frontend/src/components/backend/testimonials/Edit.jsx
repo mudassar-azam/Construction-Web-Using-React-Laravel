@@ -8,9 +8,10 @@ import { apiUrl, token, fileUrl } from '../../partials/http';
 import { useForm } from 'react-hook-form';
 
 export default function Edit() {
+
     const [disable, setDisable] = useState(false);
     const [imageId, setImageId] = useState(null);
-    const [project, setProject] = useState(null);
+    const [testimonial, setTestimonial] = useState(null);
     const params = useParams();
 
     const {
@@ -19,7 +20,7 @@ export default function Edit() {
         formState: { errors },
     } = useForm({
         defaultValues: async () => {
-            const res = await fetch(apiUrl + 'projects/' + params.id, {
+            const res = await fetch(apiUrl + 'testimonials/' + params.id, {
                 'method': 'GET',
                 'headers': {
                     'Content-type': 'application/json',
@@ -29,13 +30,10 @@ export default function Edit() {
             });
 
             const result = await res.json();
-            setProject(result.data)
+            setTestimonial(result.data)
             return {
-                title: result.data.title,
-                slug: result.data.slug,
-                location: result.data.location,
-                short_des: result.data.short_des,
-                content: result.data.content,
+                testimonial: result.data.testimonial,
+                commented_by: result.data.commented_by,
                 status: result.data.status
             }
         }
@@ -45,7 +43,7 @@ export default function Edit() {
 
     const onSubmit = async (data) => {
         const newData = { ...data, "imageId": imageId }
-        const res = await fetch(apiUrl + 'projects/' + params.id, {
+        const res = await fetch(apiUrl + 'testimonials/' + params.id, {
             'method': 'PUT',
             'headers': {
                 'Content-type': 'application/json',
@@ -58,7 +56,7 @@ export default function Edit() {
         const result = await res.json();
         if (result.status == true) {
             toast.success(result.message);
-            navigate('/admin/projects');
+            navigate('/admin/testimonials');
         } else {
             toast.error(result.message);
         }
@@ -105,68 +103,36 @@ export default function Edit() {
                             <div className="card shadow border-0">
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between">
-                                        <h4 className='h5'>Projects / Edit</h4>
-                                        <Link to="/admin/projects" className='btn btn-primary'>Back</Link>
+                                        <h4 className='h5'>Testimonials / Edit</h4>
+                                        <Link to="/admin/testimonials" className='btn btn-primary'>Back</Link>
                                     </div>
                                     <hr />
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <div className="mb-3">
-                                            <label htmlFor="" className='form-label'>Name</label>
+                                            <label htmlFor="" className='form-label'>Testimonial</label>
                                             <input
                                                 {
-                                                ...register('title', {
-                                                    required: "Title field is required"
+                                                ...register('testimonial', {
+                                                    required: "Testimonial field is required"
                                                 })
                                                 }
-                                                type="text" placeholder='Title' className={`form-control ${errors.title && 'is-invalid'}`} />
+                                                type="text" placeholder='Testimonial' className={`form-control ${errors.testimonial && 'is-invalid'}`} />
                                             {
-                                                errors.title && <p className='invalid-feedback py-2'>{errors.title?.message}</p>
+                                                errors.testimonial && <p className='invalid-feedback py-2'>{errors.testimonial?.message}</p>
                                             }
                                         </div>
                                         <div className="mb-3">
-                                            <label htmlFor="" className='form-label'>Slug</label>
+                                            <label htmlFor="" className='form-label'>Commented By</label>
                                             <input
                                                 {
-                                                ...register('slug', {
-                                                    required: "Slug field is required"
+                                                ...register('commented_by', {
+                                                    required: "Commented By field is required"
                                                 })
                                                 }
-                                                type="text" placeholder='Slug' className={`form-control ${errors.slug && 'is-invalid'}`} />
+                                                type="text" placeholder='Commented By' className={`form-control ${errors.commented_by && 'is-invalid'}`} />
                                             {
-                                                errors.slug && <p className='invalid-feedback py-2'>{errors.slug?.message}</p>
+                                                errors.commented_by && <p className='invalid-feedback py-2'>{errors.commented_by?.message}</p>
                                             }
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="" className='form-label'>Location</label>
-                                            <input
-                                                {
-                                                ...register('location', {
-                                                    required: "Location field is required"
-                                                })
-                                                }
-                                                type="text" className={`form-control ${errors.location && 'is-invalid'}`} />
-                                            {
-                                                errors.location && <p className='invalid-feedback py-2'>{errors.location?.message}</p>
-                                            }
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor=""
-                                                className='form-label'>Short Description</label>
-                                            <textarea placeholder='Short description'
-                                                {
-                                                ...register('short_des')
-                                                }
-                                                className='form-control' rows={4}></textarea>
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor=""
-
-                                                className='form-label'>Content</label>
-                                            <textarea placeholder='Content'
-                                                {
-                                                ...register('content')
-                                                }
-                                                className='form-control' rows={4}></textarea>
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="" className='form-label'>Image</label>
@@ -174,7 +140,7 @@ export default function Edit() {
 
                                         </div>
                                         <div className='p-3'>
-                                            {project?.image && <img src={`${fileUrl}uploads/projects/small/${project.image}`} />}
+                                            {testimonial?.image && <img src={`${fileUrl}uploads/testimonials/small/${testimonial.image}`} />}
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="" className='form-label'>Status</label>

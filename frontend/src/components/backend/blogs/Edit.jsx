@@ -10,7 +10,7 @@ import { useForm } from 'react-hook-form';
 export default function Edit() {
     const [disable, setDisable] = useState(false);
     const [imageId, setImageId] = useState(null);
-    const [project, setProject] = useState(null);
+    const [blog, setBlog] = useState(null);
     const params = useParams();
 
     const {
@@ -19,7 +19,7 @@ export default function Edit() {
         formState: { errors },
     } = useForm({
         defaultValues: async () => {
-            const res = await fetch(apiUrl + 'projects/' + params.id, {
+            const res = await fetch(apiUrl + 'blogs/' + params.id, {
                 'method': 'GET',
                 'headers': {
                     'Content-type': 'application/json',
@@ -29,11 +29,11 @@ export default function Edit() {
             });
 
             const result = await res.json();
-            setProject(result.data)
+            setBlog(result.data)
             return {
                 title: result.data.title,
                 slug: result.data.slug,
-                location: result.data.location,
+                author: result.data.author,
                 short_des: result.data.short_des,
                 content: result.data.content,
                 status: result.data.status
@@ -45,7 +45,7 @@ export default function Edit() {
 
     const onSubmit = async (data) => {
         const newData = { ...data, "imageId": imageId }
-        const res = await fetch(apiUrl + 'projects/' + params.id, {
+        const res = await fetch(apiUrl + 'blogs/' + params.id, {
             'method': 'PUT',
             'headers': {
                 'Content-type': 'application/json',
@@ -58,7 +58,7 @@ export default function Edit() {
         const result = await res.json();
         if (result.status == true) {
             toast.success(result.message);
-            navigate('/admin/projects');
+            navigate('/admin/blogs');
         } else {
             toast.error(result.message);
         }
@@ -105,13 +105,13 @@ export default function Edit() {
                             <div className="card shadow border-0">
                                 <div className="card-body p-4">
                                     <div className="d-flex justify-content-between">
-                                        <h4 className='h5'>Projects / Edit</h4>
-                                        <Link to="/admin/projects" className='btn btn-primary'>Back</Link>
+                                        <h4 className='h5'>Blogs / Edit</h4>
+                                        <Link to="/admin/blogs" className='btn btn-primary'>Back</Link>
                                     </div>
                                     <hr />
                                     <form onSubmit={handleSubmit(onSubmit)}>
                                         <div className="mb-3">
-                                            <label htmlFor="" className='form-label'>Name</label>
+                                            <label htmlFor="" className='form-label'>Title</label>
                                             <input
                                                 {
                                                 ...register('title', {
@@ -137,16 +137,16 @@ export default function Edit() {
                                             }
                                         </div>
                                         <div className="mb-3">
-                                            <label htmlFor="" className='form-label'>Location</label>
+                                            <label htmlFor="" className='form-label'>Author</label>
                                             <input
                                                 {
-                                                ...register('location', {
-                                                    required: "Location field is required"
+                                                ...register('author', {
+                                                    required: "Author field is required"
                                                 })
                                                 }
-                                                type="text" className={`form-control ${errors.location && 'is-invalid'}`} />
+                                                type="text" className={`form-control ${errors.author && 'is-invalid'}`} />
                                             {
-                                                errors.location && <p className='invalid-feedback py-2'>{errors.location?.message}</p>
+                                                errors.author && <p className='invalid-feedback py-2'>{errors.author?.message}</p>
                                             }
                                         </div>
                                         <div className="mb-3">
@@ -174,7 +174,7 @@ export default function Edit() {
 
                                         </div>
                                         <div className='p-3'>
-                                            {project?.image && <img src={`${fileUrl}uploads/projects/small/${project.image}`} />}
+                                            {blog?.image && <img src={`${fileUrl}uploads/blogs/small/${blog.image}`} />}
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="" className='form-label'>Status</label>

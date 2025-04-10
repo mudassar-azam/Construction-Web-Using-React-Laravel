@@ -18,6 +18,12 @@ import {default as EditServices} from './components/backend/services/Edit';
 import {default as ShowProjects} from './components/backend/projects/Show';
 import {default as CreateProjects} from './components/backend/projects/Create';
 import {default as EditProjects} from './components/backend/projects/Edit';
+import {default as ShowBlogs} from './components/backend/blogs/Show';
+import {default as CreateBlogs} from './components/backend/blogs/Create';
+import {default as EditBlogs} from './components/backend/blogs/Edit';
+import {default as ShowTestimonials} from './components/backend/testimonials/Show';
+import {default as CreateTestimonials} from './components/backend/testimonials/Create';
+import {default as EditTestimonials} from './components/backend/testimonials/Edit';
 
 function App() {
 
@@ -65,6 +71,36 @@ function App() {
           <Route exact path='/admin/projects/edit/:id' element={
             <RequireAuth>
               <EditProjects/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/blogs' element={
+            <RequireAuth>
+              <ShowBlogs/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/blogs/create' element={
+            <RequireAuth>
+              <CreateBlogs/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/blogs/edit/:id' element={
+            <RequireAuth>
+              <EditBlogs/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/testimonials' element={
+            <RequireAuth>
+              <ShowTestimonials/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/testimonials/create' element={
+            <RequireAuth>
+              <CreateTestimonials/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/testimonials/edit/:id' element={
+            <RequireAuth>
+              <EditTestimonials/>
             </RequireAuth>}>
           </Route>
         </Routes>
