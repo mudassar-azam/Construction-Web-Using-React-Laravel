@@ -68,15 +68,15 @@ export default function Show() {
                                         <Link to="/admin/projects/create" className='btn btn-primary'>CREATE</Link>
                                     </div>
                                     <hr />
-                                    <table className="table table-striped">
+                                    <table className="table table-striped" style={{ tableLayout: 'fixed', width: '100%' }}>
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>Name</th>
-                                                <th>Slug</th>
-                                                <th>Location</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
+                                                <th style={{ width: '5%', verticalAlign: 'top', textAlign: 'left' }}>Id</th>
+                                                <th style={{ width: '25%', verticalAlign: 'top', textAlign: 'left' }}>Name</th>
+                                                <th style={{ width: '20%', verticalAlign: 'top', textAlign: 'left' }}>Slug</th>
+                                                <th style={{ width: '20%', verticalAlign: 'top', textAlign: 'left' }}>Location</th>
+                                                <th style={{ width: '10%', verticalAlign: 'top', textAlign: 'left' }}>Status</th>
+                                                <th style={{ width: '20%', verticalAlign: 'top', textAlign: 'left' }}>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,26 +84,54 @@ export default function Show() {
                                                 projects && projects.map(project => {
                                                     return (
                                                         <tr key={`project-${project.id}`}>
-                                                            <td>{project.id}</td>
-                                                            <td>{project.title}</td>
-                                                            <td>{project.slug}</td>
-                                                            <td>{project.location}</td>
-                                                            <td>
-                                                                {
-                                                                    (project.status == 1) ? 'Active' : 'Block'
-                                                                }
+                                                            <td style={{ verticalAlign: 'top' }}>{project.id}</td>
+                                                            <td style={{ verticalAlign: 'top', wordWrap: 'break-word', whiteSpace: 'normal' }}>{project.title}</td>
+                                                            <td style={{ verticalAlign: 'top', wordWrap: 'break-word', whiteSpace: 'normal' }}>{project.slug}</td>
+                                                            <td style={{ verticalAlign: 'top', wordWrap: 'break-word', whiteSpace: 'normal' }}>{project.location}</td>
+                                                            <td style={{ verticalAlign: 'top' }}>
+                                                                {project.status == 1 ? 'Active' : 'Block'}
                                                             </td>
-                                                            <td>
-                                                                <Link to={`/admin/projects/edit/${project.id}`} className="btn btn-primary">Edit</Link>
-                                                                <Link onClick={() => deleteProject(project.id)} className="btn btn-secondary ms-2">Delete</Link>
+                                                            <td style={{ verticalAlign: 'top', whiteSpace: 'nowrap' }}>
+                                                                <div style={{ display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                                                                    <Link
+                                                                        to={`/admin/projects/edit/${project.id}`}
+                                                                        style={{
+                                                                            backgroundColor: '#e83e8c',
+                                                                            color: 'white',
+                                                                            padding: '5px 10px',
+                                                                            textDecoration: 'none',
+                                                                            borderRadius: '5px',
+                                                                            fontSize: '14px',
+                                                                            textAlign: 'center',
+                                                                            width: 'fit-content'
+                                                                        }}
+                                                                    >
+                                                                        Edit
+                                                                    </Link>
+                                                                    <button
+                                                                        onClick={() => deleteProject(project.id)}
+                                                                        style={{
+                                                                            backgroundColor: '#ffc107',
+                                                                            color: 'black',
+                                                                            padding: '5px 10px',
+                                                                            border: 'none',
+                                                                            borderRadius: '5px',
+                                                                            fontSize: '14px',
+                                                                            cursor: 'pointer',
+                                                                            width: 'fit-content'
+                                                                        }}
+                                                                    >
+                                                                        Delete
+                                                                    </button>
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                     )
                                                 })
                                             }
-
                                         </tbody>
                                     </table>
+
                                 </div>
                             </div>
                         </div>

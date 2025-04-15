@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\AuthenticationController;
 use App\Http\Controllers\Api\Admin\DashboardController;
 use App\Http\Controllers\Api\Admin\ProjectController;
 use App\Http\Controllers\Api\Admin\ServiceController;
+use App\Http\Controllers\Api\Admin\TeamMemberController;
 use App\Http\Controllers\Api\Admin\TestimonialController;
 use App\Http\Controllers\Api\Front\BlogsController;
 use App\Http\Controllers\Api\Front\ProjectsController;
@@ -51,6 +52,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('testimonials/{id}', [TestimonialController::class, 'update']);
     Route::delete('testimonials/{id}', [TestimonialController::class, 'destroy']);
 
+
+    // team members routes 
+    Route::get('team-members', [TeamMemberController::class, 'index']);
+    Route::post('team-members', [TeamMemberController::class, 'store']);
+    Route::get('team-members/{id}', [TeamMemberController::class, 'show']);
+    Route::put('team-members/{id}', [TeamMemberController::class, 'update']);
+    Route::delete('team-members/{id}', [TeamMemberController::class, 'destroy']);
+
     // store image route 
     Route::post('temp-images', [TempImageController::class, 'store']);
 });
@@ -73,3 +82,7 @@ Route::get('get-latest-blogs', [BlogsController::class, 'latest']);
 // front routes / blogs
 Route::get('get-testimonials', [TestimonialsController::class, 'index']);
 Route::get('get-latest-testimonials', [TestimonialsController::class, 'latest']);
+
+Route::get('team-members', [TeamMemberController::class, 'index']);
+
+

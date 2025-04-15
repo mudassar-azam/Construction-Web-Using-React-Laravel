@@ -22,7 +22,10 @@ export default function Sidebar() {
                         <Link to="/admin/blogs">Blogs</Link>
                     </li>
                     <li>
-                        <a href="/admin/testimonials">Testimonial</a>
+                        <Link to="/admin/testimonials">Testimonial</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/team">Team Members</Link>
                     </li>
                     <li>
                         <button onClick={logout} className='btn btn-primary small mt-3'>Logout</button>

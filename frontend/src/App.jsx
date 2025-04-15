@@ -24,6 +24,9 @@ import {default as EditBlogs} from './components/backend/blogs/Edit';
 import {default as ShowTestimonials} from './components/backend/testimonials/Show';
 import {default as CreateTestimonials} from './components/backend/testimonials/Create';
 import {default as EditTestimonials} from './components/backend/testimonials/Edit';
+import {default as ShowTeam} from './components/backend/team/Show';
+import {default as CreateTeam} from './components/backend/team/Create';
+import {default as EditTeam} from './components/backend/team/Edit';
 
 function App() {
 
@@ -101,6 +104,21 @@ function App() {
           <Route exact path='/admin/testimonials/edit/:id' element={
             <RequireAuth>
               <EditTestimonials/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/team' element={
+            <RequireAuth>
+              <ShowTeam/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/team/create' element={
+            <RequireAuth>
+              <CreateTeam/>
+            </RequireAuth>}>
+          </Route>
+          <Route exact path='/admin/team/edit/:id' element={
+            <RequireAuth>
+              <EditTeam/>
             </RequireAuth>}>
           </Route>
         </Routes>
