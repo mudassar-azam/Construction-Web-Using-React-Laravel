@@ -22,9 +22,18 @@ class ServicesController extends Controller
         $services = Service::where('status', 1)
             ->take($request->get('limit'))
             ->orderBy('created_at', 'DESC')->get();
-            return response()->json([
-                'status' => true,
-                'data' => $services
-            ]);
+        return response()->json([
+            'status' => true,
+            'data' => $services
+        ]);
+    }
+
+    public function service($id)
+    {
+        $service = Service::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => $service
+        ]);
     }
 }

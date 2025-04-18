@@ -3,6 +3,7 @@ import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import Hero from '../partials/Hero';
 import { apiUrl, fileUrl } from '../partials/http';
+import { Link } from 'react-router-dom';
 
 export default function Blogs() {
 
@@ -48,7 +49,7 @@ export default function Blogs() {
                                                 </div>
                                                 <div className="service-content">
                                                     <p>{blog.short_des}</p>
-                                                    <a href="#" className='btn btn-primary'>Read More</a>
+                                                    <Link to={`/blog/${blog.id}`} className='btn btn-primary'>Read More</Link>
                                                 </div>
                                             </div>
                                         </div>

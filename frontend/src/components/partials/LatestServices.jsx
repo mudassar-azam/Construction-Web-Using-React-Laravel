@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { apiUrl, fileUrl } from '../partials/http';
+import { Link } from 'react-router-dom';
 
 export default function LatestServices() {
 
@@ -42,7 +43,7 @@ export default function LatestServices() {
                                             </div>
                                             <div className="service-content">
                                                 <p>{service.short_des}</p>
-                                                <a href="#" className='btn btn-primary'>Read More</a>
+                                                <Link to={`/service/${service.id}`} className='btn btn-primary'>Read More</Link>
                                             </div>
                                         </div>
                                     </div>

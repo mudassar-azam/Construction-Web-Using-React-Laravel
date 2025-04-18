@@ -27,4 +27,13 @@ class BlogsController extends Controller
                 'data' => $blogs
             ]);
     }
+
+    public function blog($id)
+    {
+        $blog = Blog::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => $blog
+        ]);
+    }
 }

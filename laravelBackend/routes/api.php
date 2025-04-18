@@ -66,16 +66,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 
 // front routes / services
+Route::get('get-service/{id}', [ServicesController::class, 'service']);
 Route::get('get-services', [ServicesController::class, 'index']);
 Route::get('get-latest-services', [ServicesController::class, 'latest']);
 
 
 // front routes / projects
+Route::get('get-project/{id}', [ProjectsController::class, 'project']);
 Route::get('get-projects', [ProjectsController::class, 'index']);
 Route::get('get-latest-projects', [ProjectsController::class, 'latest']);
 
 
 // front routes / blogs
+Route::get('get-blog/{id}', [BlogsController::class, 'blog']);
 Route::get('get-blogs', [BlogsController::class, 'index']);
 Route::get('get-latest-blogs', [BlogsController::class, 'latest']);
 

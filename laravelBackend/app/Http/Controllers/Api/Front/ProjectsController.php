@@ -27,4 +27,13 @@ class ProjectsController extends Controller
                 'data' => $projects
             ]);
     }
+
+    public function project($id)
+    {
+        $project = Project::find($id);
+        return response()->json([
+            'status' => true,
+            'data' => $project
+        ]);
+    }
 }
